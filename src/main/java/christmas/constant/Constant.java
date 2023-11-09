@@ -14,4 +14,6 @@ public class Constant {
     public static final String TOTAL_DISCOUNT_AMOUNT="<총혜택 금액>";
     public static final String AMOUNT_AFTER_DISCOUNT="<할인 후 예상 결제 금액>";
     public static final String DECEMBER_BADGE="<12월 이벤트 배지>";
+
+    public static final String REGEXP_PATTERN_NUMBER = "^[\\d]*$";
 }
