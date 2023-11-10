@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 public class Customer {
     private final Integer visitDate;
+    private static final Pattern isNumberPattern = Pattern.compile(Constant.REGEXP_PATTERN_NUMBER);
 
     public Customer(String date){
         isNumber(date);
@@ -14,7 +15,7 @@ public class Customer {
         visitDate = Integer.parseInt(date);
     }
     private void isNumber(String n) {
-        if(!Pattern.matches(Constant.REGEXP_PATTERN_NUMBER, n)){
+        if(!isNumberPattern.matcher(n).matches()){
             throw new IllegalArgumentException(ErrorConstant.INVALIDATE_DATE);
         }
     }
