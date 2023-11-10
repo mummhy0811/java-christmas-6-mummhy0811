@@ -41,5 +41,20 @@ public class EventController {
     private void showEvent(){
         OutputView.printOrderedMenu(order.getMenuAndQuantity());
         OutputView.printAmountBeforeDiscount(order.calcTotalOrderAmount());
+        if(canParticipateEvent()){
+            joinEvent();
+        }else{
+            justPrint();
+        }
     }
+    private boolean canParticipateEvent(){
+        return order.overMinimum() && order.notOnlyDrinks();
+    }
+    private void joinEvent(){
+
+    }
+    private void justPrint(){
+        
+    }
+
 }

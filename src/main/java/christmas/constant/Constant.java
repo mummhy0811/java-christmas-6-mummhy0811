@@ -18,4 +18,6 @@ public class Constant {
     public static final String REGEXP_PATTERN_NUMBER = "^[\\d]*$";
     public static final String MONEY_OUTPUT_FORMAT="###,###,###,###";
     public static final int MAX_ORDER_QUANTITY = 20;
+
+    public static final int MINIMUM_AMOUNT=10000;
 }

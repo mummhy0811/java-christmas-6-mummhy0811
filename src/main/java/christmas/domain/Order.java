@@ -67,4 +67,16 @@ public class Order {
         }
         return total;
     }
+
+    public boolean overMinimum(){
+        int total = calcTotalOrderAmount();
+        return total >= Constant.MINIMUM_AMOUNT;
+    }
+
+    public boolean notOnlyDrinks(){
+        for(Menu m : menuAndQuantity.keySet()){
+            if(!m.getType().equals("음료")) return false;
+        }
+        return true;
+    }
 }
