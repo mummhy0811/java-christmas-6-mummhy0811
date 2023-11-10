@@ -24,4 +24,8 @@ public class Customer {
             throw new IllegalArgumentException(ErrorConstant.INVALIDATE_DATE);
         }
     }
+
+    public Integer getVisitDate() {
+        return visitDate;
+    }
 }

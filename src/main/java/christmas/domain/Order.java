@@ -55,4 +55,8 @@ public class Order {
         validateDuplicate(menu);
         menuAndQuantity.put(menu, quantity);
     }
+
+    public HashMap<Menu, Integer> getMenuAndQuantity() {
+        return menuAndQuantity;
+    }
 }

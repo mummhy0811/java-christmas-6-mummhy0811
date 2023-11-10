@@ -1,17 +1,24 @@
 package christmas.controller;
 
 import christmas.domain.Customer;
+import christmas.domain.EventManager;
 import christmas.domain.Order;
 import christmas.view.InputView;
 import christmas.view.OutputView;
-import org.mockito.internal.matchers.Or;
 
 public class EventController {
+    private Order order;
+    private EventManager eventManager;
 
     public void startPlanner(){
         OutputView.printOpening();
         Customer customer = getVisitDate();
-        getMenu();
+        order = getMenu();
+        OutputView.eventTxt(customer.getVisitDate());
+
+        eventManager = new EventManager(order, customer.getVisitDate());
+
+        showEvent();
     }
     private Customer getVisitDate(){
         while(true){
@@ -30,5 +37,11 @@ public class EventController {
                 OutputView.printError(e.getMessage());
             }
         }
+    }
+    private void showEvent(){
+        printOrder();
+    }
+    private void printOrder(){
+        OutputView.printOrderedMenu(order.getMenuAndQuantity());
     }
 }
