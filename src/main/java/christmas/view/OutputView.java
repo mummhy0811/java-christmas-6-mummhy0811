@@ -3,10 +3,13 @@ package christmas.view;
 import christmas.constant.Constant;
 import christmas.domain.Menu;
 
+import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.util.HashMap;
 
 public class OutputView {
+    private static final DecimalFormat decimalFormat = new DecimalFormat(Constant.MONEY_OUTPUT_FORMAT);
+
     public static void printError(String e){
         System.out.println(e);
     }
@@ -27,4 +30,10 @@ public class OutputView {
         }
 
     }
+    public static void printAmountBeforeDiscount(int price){
+        System.out.println();
+        System.out.println(Constant.AMOUNT_BEFORE_DISCOUNT);
+        System.out.println(decimalFormat.format(price));
+    }
+
 }

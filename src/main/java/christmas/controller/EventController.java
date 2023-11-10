@@ -39,9 +39,7 @@ public class EventController {
         }
     }
     private void showEvent(){
-        printOrder();
-    }
-    private void printOrder(){
         OutputView.printOrderedMenu(order.getMenuAndQuantity());
+        OutputView.printAmountBeforeDiscount(order.calcTotalOrderAmount());
     }
 }

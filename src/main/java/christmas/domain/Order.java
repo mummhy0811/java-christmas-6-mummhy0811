@@ -59,4 +59,12 @@ public class Order {
     public HashMap<Menu, Integer> getMenuAndQuantity() {
         return menuAndQuantity;
     }
+
+    public int calcTotalOrderAmount(){
+        int total=0;
+        for(Menu m : menuAndQuantity.keySet()){
+            total+=m.getPrice()*menuAndQuantity.get(m);
+        }
+        return total;
+    }
 }
