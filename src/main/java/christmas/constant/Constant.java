@@ -9,8 +9,8 @@ public class Constant {
 
     public static final String ORDERED_MENU="<주문 메뉴>";
     public static final String AMOUNT_BEFORE_DISCOUNT="<할인 전 총주문 금액>";
-    public static final String GIVEAWAY_MENU="<증정 메뉴>";
-    public static final String DISCOUNT_LIST="<혜택 내역>";
+    public static final String GIVEAWAY_MENU_TXT="<증정 메뉴>";
+    public static final String DISCOUNT_LIST_TXT="<혜택 내역>";
     public static final String TOTAL_DISCOUNT_AMOUNT="<총혜택 금액>";
     public static final String AMOUNT_AFTER_DISCOUNT="<할인 후 예상 결제 금액>";
     public static final String DECEMBER_BADGE="<12월 이벤트 배지>";
@@ -20,4 +20,7 @@ public class Constant {
     public static final int MAX_ORDER_QUANTITY = 20;
 
     public static final int MINIMUM_AMOUNT=10000;
+
+    public static final String GIVEAWAY_MENU="샴페인 1개";
+    public static final String NOTHING="없음";
 }

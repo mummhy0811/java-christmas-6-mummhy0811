@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.constant.Constant;
 import christmas.domain.Customer;
 import christmas.domain.EventManager;
 import christmas.domain.Order;
@@ -54,7 +55,11 @@ public class EventController {
 
     }
     private void justPrint(){
-
+        OutputView.printGiftMenu(Constant.NOTHING);
+        OutputView.printDiscountList(null, false);
+        OutputView.printTotalDiscountAmount(0, false);
+        OutputView.printAmountAfterDiscount(order.calcTotalOrderAmount());
+        OutputView.printBadge(Constant.NOTHING);
     }
 
 }

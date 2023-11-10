@@ -33,7 +33,43 @@ public class OutputView {
     public static void printAmountBeforeDiscount(int price){
         System.out.println();
         System.out.println(Constant.AMOUNT_BEFORE_DISCOUNT);
-        System.out.println(decimalFormat.format(price));
+        System.out.println(decimalFormat.format(price)+"원");
     }
 
+    public static void printGiftMenu(String menu){
+        System.out.println();
+        System.out.println(Constant.GIVEAWAY_MENU_TXT);
+        System.out.println(menu);
+    }
+
+    public static void printDiscountList(HashMap<String, String> events, Boolean b){
+        System.out.println();
+        System.out.println(Constant.DISCOUNT_LIST_TXT);
+        if(b){
+            //todo
+            return;
+        }
+        System.out.println(Constant.NOTHING);
+
+    }
+
+    public static void printTotalDiscountAmount(int price, Boolean b){
+        System.out.println();
+        System.out.println(Constant.TOTAL_DISCOUNT_AMOUNT);
+        if(b){
+            System.out.println("-"+decimalFormat.format(price));
+            return;
+        }
+        System.out.println(Constant.NOTHING);
+    }
+    public static void printAmountAfterDiscount(int price){
+        System.out.println();
+        System.out.println(Constant.AMOUNT_AFTER_DISCOUNT);
+        System.out.println(decimalFormat.format(price)+"원");
+    }
+    public static void printBadge(String badge){
+        System.out.println();
+        System.out.println(Constant.DECEMBER_BADGE);
+        System.out.println(badge);
+    }
 }
