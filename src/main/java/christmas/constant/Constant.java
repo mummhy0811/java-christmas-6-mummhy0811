@@ -16,4 +16,6 @@ public class Constant {
     public static final String DECEMBER_BADGE="<12월 이벤트 배지>";
 
     public static final String REGEXP_PATTERN_NUMBER = "^[\\d]*$";
+
+    public static final int MAX_ORDER_QUANTITY = 20;
 }

@@ -9,4 +9,9 @@ public class InputView {
         System.out.println(Constant.GET_RESERVE_DATE);
         return Console.readLine();
     }
+
+    public static String getMenu(){
+        System.out.println(Constant.GET_ORDERED_MENU);
+        return Console.readLine();
+    }
 }
