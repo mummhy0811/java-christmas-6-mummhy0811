@@ -2,6 +2,8 @@ package christmas.domain;
 
 import christmas.constant.ErrorConstant;
 
+import java.util.Arrays;
+
 
 public enum Menu {
     MUSHROOM_SOUP("애피타이저", "양송이스프", 6000),
@@ -30,10 +32,9 @@ public enum Menu {
         this.price=price;
     }
     public static Menu find(String input) {
-        try{
-            return Menu.valueOf(input);
-        }catch (IllegalArgumentException e){
-            throw new IllegalArgumentException(ErrorConstant.INVALIDATE_ORDER);
-        }
+        return Arrays.stream(Menu.values())
+                .filter(menu -> menu.name.equals(input))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException(ErrorConstant.INVALIDATE_ORDER));
     }
 }
