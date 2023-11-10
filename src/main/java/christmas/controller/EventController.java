@@ -41,11 +41,11 @@ public class EventController {
     private void showEvent(){
         OutputView.printOrderedMenu(order.getMenuAndQuantity());
         OutputView.printAmountBeforeDiscount(order.calcTotalOrderAmount());
-        if(canParticipateEvent()){
-            joinEvent();
-        }else{
+        if(!canParticipateEvent()){
             justPrint();
+            return;
         }
+        joinEvent();
     }
     private boolean canParticipateEvent(){
         return order.overMinimum() && order.notOnlyDrinks();
@@ -54,7 +54,7 @@ public class EventController {
 
     }
     private void justPrint(){
-        
+
     }
 
 }

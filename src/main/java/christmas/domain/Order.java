@@ -75,8 +75,8 @@ public class Order {
 
     public boolean notOnlyDrinks(){
         for(Menu m : menuAndQuantity.keySet()){
-            if(!m.getType().equals("음료")) return false;
+            if(!m.getType().equals("음료")) return true;
         }
-        return true;
+        return false;
     }
 }
