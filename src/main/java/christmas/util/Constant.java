@@ -36,6 +36,13 @@ public class Constant {
 
     public static final int DAY_DISCOUNT=2023;
 
+    public static final int STAR_BADGE_PRICE=5000;
+    public static final int TREE_BADGE_PRICE=10000;
+    public static final int SANTA_BADGE_PRICE=20000;
+    public static final String STAR_BADGE_NAME="별";
+    public static final String TREE_BADGE_NAME="트리";
+    public static final String SANTA_BADGE_NAME="산타";
+
     public static final int GIVEAWAY_MINIMUM=120000;
 
     public static final String MENU_TYPE_MAIN="메인";

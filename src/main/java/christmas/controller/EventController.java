@@ -11,6 +11,8 @@ import java.util.HashMap;
 public class EventController {
     private Order order;
     private Customer customer;
+    private int discountAmount=0;
+    private int giveAwayAmount=0;
 
     public void startPlanner(){
         OutputView.printOpening();
@@ -46,9 +48,9 @@ public class EventController {
             justPrint();
             return;
         }
-        int totalDiscount = joinEvent();
-        OutputView.printAmountAfterDiscount(beforeDiscount-totalDiscount);
-
+        joinEvent();
+        OutputView.printAmountAfterDiscount(beforeDiscount-discountAmount);
+        OutputView.printBadge(getBadge());
     }
 
     private int joinEvent(){
@@ -94,12 +96,18 @@ public class EventController {
         return event;
     }
     private int printTotalDiscount(HashMap<String, Integer> discountList){
-        int total=0;
         for(String s : discountList.keySet()){
-            total+=discountList.get(s);
+            if(s.equals(Constant.GIVE_AWAY_EVENT)){
+                giveAwayAmount=discountList.get(s);
+                continue;
+            }
+            discountAmount+=discountList.get(s);
         }
-        OutputView.printTotalDiscountAmount(total, true);
-        if(discountList.containsKey(Constant.GIVE_AWAY_EVENT)) total-=discountList.get(Constant.GIVE_AWAY_EVENT);
-        return total;
+        OutputView.printTotalDiscountAmount(discountAmount+giveAwayAmount, true);
+        return discountAmount;
+    }
+    private String getBadge(){
+        BadgeEvent badgeEvent = new BadgeEvent();
+        return badgeEvent.getBadge(discountAmount+giveAwayAmount);
     }
 }
