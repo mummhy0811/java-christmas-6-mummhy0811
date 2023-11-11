@@ -87,4 +87,8 @@ public class Order {
         }
         return total;
     }
+
+    public boolean overGiveAwayMinimum(){
+        return calcTotalOrderAmount()>=Constant.GIVEAWAY_MINIMUM;
+    }
 }

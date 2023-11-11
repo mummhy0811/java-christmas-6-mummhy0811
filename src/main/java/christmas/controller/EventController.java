@@ -52,7 +52,11 @@ public class EventController {
     private boolean canParticipateEvent(){
         return order.overMinimum() && order.notOnlyDrinks();
     }
+
     private void joinEvent(){
+
+        printGiftMenu(order.overGiveAwayMinimum());
+
         HashMap<String, Integer> event = new HashMap<>();
         int date = customer.getVisitDate();
 
@@ -69,11 +73,19 @@ public class EventController {
 
     }
     private void justPrint(){
-        OutputView.printGiftMenu(Constant.NOTHING);
+        printGiftMenu(false);
         OutputView.printDiscountList(null, false);
         OutputView.printTotalDiscountAmount(0, false);
         OutputView.printAmountAfterDiscount(order.calcTotalOrderAmount());
         OutputView.printBadge(Constant.NOTHING);
     }
+    private void printGiftMenu(boolean b){
+        if(b){
+            OutputView.printGiftMenu(Constant.GIVEAWAY_MENU+Constant.GIVEAWAY_MENU_QUANTITY);
+            return;
+        }
+        OutputView.printGiftMenu(Constant.NOTHING);
+    }
+
 
 }
