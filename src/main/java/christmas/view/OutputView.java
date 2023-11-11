@@ -59,7 +59,7 @@ public class OutputView {
         System.out.println();
         System.out.println(Constant.TOTAL_DISCOUNT_AMOUNT);
         if(b){
-            System.out.println("-"+decimalFormat.format(price));
+            System.out.println("-"+decimalFormat.format(price)+"원");
             return;
         }
         System.out.println(Constant.NOTHING);

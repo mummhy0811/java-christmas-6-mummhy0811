@@ -60,7 +60,7 @@ public class EventController {
 
         HashMap<String, Integer> discountList = calcEvent(getGiveAway);
         OutputView.printDiscountList(discountList, true);
-
+        printTotalDiscount(discountList);
     }
     private void justPrint(){
         printGiftMenu(false);
@@ -96,5 +96,11 @@ public class EventController {
         if(getGiveAway) event.put(Constant.GIVE_AWAY_EVENT, Menu.find(Constant.GIVEAWAY_MENU).getPrice());
         return event;
     }
-
+    private void printTotalDiscount(HashMap<String, Integer> discountList){
+        int total=0;
+        for(String s : discountList.keySet()){
+            total+=discountList.get(s);
+        }
+        OutputView.printTotalDiscountAmount(total, true);
+    }
 }
