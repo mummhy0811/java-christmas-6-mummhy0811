@@ -1,7 +1,7 @@
 package christmas.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import christmas.constant.Constant;
+import christmas.util.Constant;
 
 public class InputView {
 

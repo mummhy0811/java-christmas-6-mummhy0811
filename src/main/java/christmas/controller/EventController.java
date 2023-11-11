@@ -1,19 +1,21 @@
 package christmas.controller;
 
-import christmas.constant.Constant;
-import christmas.domain.Customer;
-import christmas.domain.EventManager;
-import christmas.domain.Order;
+import christmas.util.Constant;
+import christmas.domain.*;
+import christmas.util.DayCalc;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
+import java.util.HashMap;
+
 public class EventController {
     private Order order;
+    private Customer customer;
     private EventManager eventManager;
 
     public void startPlanner(){
         OutputView.printOpening();
-        Customer customer = getVisitDate();
+        customer = getVisitDate();
         order = getMenu();
         OutputView.eventTxt(customer.getVisitDate());
 
@@ -52,6 +54,18 @@ public class EventController {
         return order.overMinimum() && order.notOnlyDrinks();
     }
     private void joinEvent(){
+        HashMap<String, Integer> event = new HashMap<>();
+        int date = customer.getVisitDate();
+
+        DDayEvent dDayEvent = new DDayEvent();
+        event.put(Constant.DDAY_EVENT,dDayEvent.dDayDiscount(date));
+
+        DayOfTheWeek dayOfTheWeek = new DayOfTheWeek();
+        String dayCheck=Constant.WEEK_EVENT;
+        if(dayOfTheWeek.checkWeekend(date)) dayCheck=Constant.WEEKEND_EVENT;
+        event.put(dayCheck,order.calcDayDiscount(dayOfTheWeek.dayDiscount(date)));
+
+        
 
     }
     private void justPrint(){

@@ -1,6 +1,11 @@
-package christmas.constant;
+package christmas.util;
 
 public class Constant {
+
+    public static final String DDAY_EVENT="크리스마스 디데이 할인";
+    public static final String WEEK_EVENT="평일 할인";
+    public static final String WEEKEND_EVENT="주말 할인";
+    public static final String GIFT_AWAY_EVENT="증정 이벤트";
 
     public static final String OPENING_TXT="안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.";
     public static final String GET_RESERVE_DATE="12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)";
@@ -23,4 +28,10 @@ public class Constant {
 
     public static final String GIVEAWAY_MENU="샴페인 1개";
     public static final String NOTHING="없음";
+
+    public static final int DDAY_EVENT_INCREMENT=100;
+    public static final int DDAY_EVENT_BASIC=900;
+
+    public static final String MENU_TYPE_MAIN="메인";
+    public static final String MENU_TYPE_DESSERT="디저트";
 }

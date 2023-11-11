@@ -1,6 +1,6 @@
 package christmas.domain;
 
-import christmas.constant.ErrorConstant;
+import christmas.util.ErrorConstant;
 
 import java.util.Arrays;
 

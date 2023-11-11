@@ -1,6 +1,6 @@
 package christmas.view;
 
-import christmas.constant.Constant;
+import christmas.util.Constant;
 import christmas.domain.Menu;
 
 import java.text.DecimalFormat;

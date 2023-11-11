@@ -1,7 +1,7 @@
 package christmas.domain;
 
-import christmas.constant.Constant;
-import christmas.constant.ErrorConstant;
+import christmas.util.Constant;
+import christmas.util.ErrorConstant;
 
 import java.util.HashMap;
 import java.util.StringTokenizer;
@@ -78,5 +78,13 @@ public class Order {
             if(!m.getType().equals("음료")) return true;
         }
         return false;
+    }
+
+    public int calcDayDiscount(String type){
+        int total = calcTotalOrderAmount();
+        for(Menu m : menuAndQuantity.keySet()){
+            if(!m.getType().equals(type)) total-=m.getPrice();
+        }
+        return total;
     }
 }
