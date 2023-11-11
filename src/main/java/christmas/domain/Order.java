@@ -83,7 +83,9 @@ public class Order {
     public int calcDayDiscount(String type){
         int total = 0;
         for(Menu m : menuAndQuantity.keySet()){
-            if(!m.getType().equals(type)) total+=Constant.DAY_DISCOUNT;
+            if(m.getType().equals(type)) {
+                total+=Constant.DAY_DISCOUNT*menuAndQuantity.get(m);
+            }
         }
         return total;
     }
