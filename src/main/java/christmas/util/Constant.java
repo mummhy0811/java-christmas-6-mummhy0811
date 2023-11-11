@@ -34,6 +34,8 @@ public class Constant {
     public static final int DDAY_EVENT_INCREMENT=100;
     public static final int DDAY_EVENT_BASIC=900;
 
+    public static final int DAY_DISCOUNT=2023;
+
     public static final int GIVEAWAY_MINIMUM=120000;
 
     public static final String MENU_TYPE_MAIN="메인";
