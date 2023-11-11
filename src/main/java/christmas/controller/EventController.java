@@ -43,24 +43,26 @@ public class EventController {
     }
     private void showEvent(){
         OutputView.printOrderedMenu(order.getMenuAndQuantity());
-        OutputView.printAmountBeforeDiscount(order.calcTotalOrderAmount());
+        int beforeDiscount = order.calcTotalOrderAmount();
+        OutputView.printAmountBeforeDiscount(beforeDiscount);
         if(!canParticipateEvent()){
             justPrint();
             return;
         }
-        joinEvent();
+        int totalDiscount = joinEvent();
+        OutputView.printAmountAfterDiscount(beforeDiscount-totalDiscount);
     }
     private boolean canParticipateEvent(){
         return order.overMinimum() && order.notOnlyDrinks();
     }
 
-    private void joinEvent(){
+    private int joinEvent(){
 
         boolean getGiveAway=printGiftMenu(order.overGiveAwayMinimum());
 
         HashMap<String, Integer> discountList = calcEvent(getGiveAway);
         OutputView.printDiscountList(discountList, true);
-        printTotalDiscount(discountList);
+        return printTotalDiscount(discountList);
     }
     private void justPrint(){
         printGiftMenu(false);
@@ -96,11 +98,13 @@ public class EventController {
         if(getGiveAway) event.put(Constant.GIVE_AWAY_EVENT, Menu.find(Constant.GIVEAWAY_MENU).getPrice());
         return event;
     }
-    private void printTotalDiscount(HashMap<String, Integer> discountList){
+    private int printTotalDiscount(HashMap<String, Integer> discountList){
         int total=0;
         for(String s : discountList.keySet()){
             total+=discountList.get(s);
         }
         OutputView.printTotalDiscountAmount(total, true);
+        if(discountList.containsKey(Constant.GIVE_AWAY_EVENT)) total-=discountList.get(Constant.GIVE_AWAY_EVENT);
+        return total;
     }
 }
