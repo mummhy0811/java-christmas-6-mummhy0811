@@ -42,11 +42,13 @@ public class OutputView {
         System.out.println(menu);
     }
 
-    public static void printDiscountList(HashMap<String, String> events, Boolean b){
+    public static void printDiscountList(HashMap<String, Integer> events, Boolean b){
         System.out.println();
         System.out.println(Constant.DISCOUNT_LIST_TXT);
         if(b){
-            //todo
+            for(String m : events.keySet()){
+                System.out.println(m+ " : -"+decimalFormat.format(events.get(m))+"원");
+            }
             return;
         }
         System.out.println(Constant.NOTHING);

@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.domain.Menu;
 import christmas.util.Constant;
 import christmas.domain.*;
 import christmas.view.InputView;
@@ -55,8 +56,29 @@ public class EventController {
 
     private void joinEvent(){
 
-        printGiftMenu(order.overGiveAwayMinimum());
+        boolean getGiveAway=printGiftMenu(order.overGiveAwayMinimum());
 
+        HashMap<String, Integer> discountList = calcEvent(getGiveAway);
+        OutputView.printDiscountList(discountList, true);
+
+    }
+    private void justPrint(){
+        printGiftMenu(false);
+        OutputView.printDiscountList(null, false);
+        OutputView.printTotalDiscountAmount(0, false);
+        OutputView.printAmountAfterDiscount(order.calcTotalOrderAmount());
+        OutputView.printBadge(Constant.NOTHING);
+    }
+    private boolean printGiftMenu(boolean b){
+        if(b){
+            OutputView.printGiftMenu(Constant.GIVEAWAY_MENU+Constant.GIVEAWAY_MENU_QUANTITY);
+            return true;
+        }
+        OutputView.printGiftMenu(Constant.NOTHING);
+        return false;
+    }
+
+    private HashMap<String, Integer> calcEvent(boolean getGiveAway){
         HashMap<String, Integer> event = new HashMap<>();
         int date = customer.getVisitDate();
 
@@ -71,21 +93,8 @@ public class EventController {
         StarEvent starEvent = new StarEvent();
         event.put(Constant.SPECIAL_EVENT, starEvent.dayDiscount(date));
 
+        if(getGiveAway) event.put(Constant.GIVE_AWAY_EVENT, Menu.find(Constant.GIVEAWAY_MENU).getPrice());
+        return event;
     }
-    private void justPrint(){
-        printGiftMenu(false);
-        OutputView.printDiscountList(null, false);
-        OutputView.printTotalDiscountAmount(0, false);
-        OutputView.printAmountAfterDiscount(order.calcTotalOrderAmount());
-        OutputView.printBadge(Constant.NOTHING);
-    }
-    private void printGiftMenu(boolean b){
-        if(b){
-            OutputView.printGiftMenu(Constant.GIVEAWAY_MENU+Constant.GIVEAWAY_MENU_QUANTITY);
-            return;
-        }
-        OutputView.printGiftMenu(Constant.NOTHING);
-    }
-
 
 }
