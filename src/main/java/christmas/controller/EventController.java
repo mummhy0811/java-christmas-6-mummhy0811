@@ -11,15 +11,12 @@ import java.util.HashMap;
 public class EventController {
     private Order order;
     private Customer customer;
-    private EventManager eventManager;
 
     public void startPlanner(){
         OutputView.printOpening();
         customer = getVisitDate();
         order = getMenu();
         OutputView.eventTxt(customer.getVisitDate());
-
-        eventManager = new EventManager(order, customer.getVisitDate());
 
         showEvent();
     }
