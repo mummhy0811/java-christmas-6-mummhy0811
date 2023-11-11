@@ -2,7 +2,6 @@ package christmas.controller;
 
 import christmas.util.Constant;
 import christmas.domain.*;
-import christmas.util.DayCalc;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -60,12 +59,13 @@ public class EventController {
         DDayEvent dDayEvent = new DDayEvent();
         event.put(Constant.DDAY_EVENT,dDayEvent.dDayDiscount(date));
 
-        DayOfTheWeek dayOfTheWeek = new DayOfTheWeek();
+        DayOfTheWeekEvent dayOfTheWeek = new DayOfTheWeekEvent();
         String dayCheck=Constant.WEEK_EVENT;
         if(dayOfTheWeek.checkWeekend(date)) dayCheck=Constant.WEEKEND_EVENT;
         event.put(dayCheck,order.calcDayDiscount(dayOfTheWeek.dayDiscount(date)));
 
-        
+        StarEvent starEvent = new StarEvent();
+        event.put(Constant.SPECIAL_EVENT, starEvent.dayDiscount(date));
 
     }
     private void justPrint(){

@@ -5,6 +5,7 @@ public class Constant {
     public static final String DDAY_EVENT="크리스마스 디데이 할인";
     public static final String WEEK_EVENT="평일 할인";
     public static final String WEEKEND_EVENT="주말 할인";
+    public static final String SPECIAL_EVENT="특별 할인";
     public static final String GIFT_AWAY_EVENT="증정 이벤트";
 
     public static final String OPENING_TXT="안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.";

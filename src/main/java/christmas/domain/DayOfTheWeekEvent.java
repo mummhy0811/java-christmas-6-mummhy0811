@@ -3,7 +3,7 @@ package christmas.domain;
 import christmas.util.Constant;
 import christmas.util.DayCalc;
 
-public class DayOfTheWeek {
+public class DayOfTheWeekEvent {
 
     public boolean checkWeekend(int day){
         return DayCalc.calcDay(day) == 5 || DayCalc.calcDay(day) == 6;
