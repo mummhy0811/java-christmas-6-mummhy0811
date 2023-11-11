@@ -30,7 +30,7 @@ public class Order {
 
             insertMenu(menu, Integer.parseInt(quantity));
         }
-
+        checkNotOnlyDrinks();
    }
 
    private void validateDuplicate(Menu menu){
@@ -73,11 +73,11 @@ public class Order {
         return total >= Constant.MINIMUM_AMOUNT;
     }
 
-    public boolean notOnlyDrinks(){
+    public void checkNotOnlyDrinks(){
         for(Menu m : menuAndQuantity.keySet()){
-            if(!m.getType().equals("음료")) return true;
+            if(!m.getType().equals("음료")) return;
         }
-        return false;
+        throw new IllegalArgumentException(ErrorConstant.INVALIDATE_ORDER);
     }
 
     public int calcDayDiscount(String type){
