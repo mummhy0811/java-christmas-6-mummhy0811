@@ -8,7 +8,7 @@ public class StarEvent {
     }
 
     public int dayDiscount(int day){
-        if(checkSunday(day)){
+        if(checkSunday(day) || day==25){
             return 1000;
         }
         return 0;
