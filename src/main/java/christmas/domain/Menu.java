@@ -15,7 +15,7 @@ public enum Menu {
     SEAFOOD_PASTA("메인","해산물파스타", 35000),
     CHRISTMAS_PASTA("메인","크리스마스파스타", 25000),
 
-    CHOCO_CATEK("디저트", "초코케이크", 15000),
+    CHOCO_CAKE("디저트", "초코케이크", 15000),
     ICECREAM("디저트", "아이스크림", 5000),
 
     ZERO_COKE("음료", "제로콜라", 3000),
